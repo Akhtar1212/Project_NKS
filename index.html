@@ -2,7 +2,12 @@
 <html lang="id" class="scroll-smooth">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#f7f4ee" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="format-detection" content="telephone=no" />
 <title>PT. Nuansa Kreasi Semesta — Event Organizer &amp; Perdagangan Besar</title>
 <meta name="description" content="Website resmi PT. Nuansa Kreasi Semesta, jasa event organizer dan perdagangan besar di Kota Bekasi, Jawa Barat. Berdiri sejak 2019." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f7f4ee'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23a67c1f' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' font-weight='bold' fill='%23a67c1f' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
@@ -61,13 +66,15 @@
      (Rekomendasi: biarkan apa adanya kecuali ingin identitas custom)
 ================================================================ -->
 <style>
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
   body {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     background-color: #f7f4ee;
     color: #3f4657;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   ::selection { background: rgba(212, 175, 55, .3); color: #1c2742; }
 
@@ -153,6 +160,28 @@
   /* Cahaya ambient (bola cahaya kabur lembut) */
   .orb { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .5; pointer-events: none; }
 
+  /* Tinggi layar penuh yang aman untuk mobile/iPad (SVH menyesuaikan URL-bar) */
+  .hero-height { min-height: 100vh; }
+  @supports (min-height: 100svh) { .hero-height { min-height: 100svh; } }
+
+  /* Area aman layar ber-notch / ber-home-indicator (iOS & Android) */
+  :root { --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px); }
+  .safe-top { padding-top: var(--safe-top); }
+
+  /* Hilangkan kilatan biru bawaan browser saat ketukan di HP/iPad */
+  body { -webkit-tap-highlight-color: transparent; }
+
+  /* Orb lebih ringan & lebih tajam di layar kecil agar tetap halus */
+  @media (max-width: 640px) { .orb { filter: blur(48px); opacity: .45; } }
+
+  /* Hormati pengaturan "reduce motion" untuk kenyamanan & aksesibilitas */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .marquee-track, .text-gold-grad, .splash-ring, .splash-ring-rev, .splash-bar, .scroll-dot { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .splash-letter, .splash-fade-item { opacity: 1 !important; transform: none !important; animation: none !important; }
+  }
+
   /* Indikator scroll di hero */
   @keyframes scrollDot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
   .scroll-dot { animation: scrollDot 2s ease-in-out infinite; }
@@ -184,7 +213,7 @@
      - Otomatis tertutup setelah ~3 detik, atau klik tombol "Masuk".
      EDIT TEKS: ubah huruf-huruf nama di bawah atau kata pada tombol.
 ================================================================ -->
-<div id="splash" class="fixed inset-0 z-[100] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+<div id="splash" class="hero-height fixed inset-0 z-[100] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
   <!-- LATAR SPLASH (dekoratif, tidak perlu diubah) -->
   <div class="absolute inset-0 bg-grid opacity-50" aria-hidden="true"></div>
   <div class="orb -top-24 right-0 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(214,164,84,.28), transparent 65%);" aria-hidden="true"></div>
@@ -246,7 +275,7 @@
      - KANAN : tombol Call-to-Action emas
      EDIT TAUTAN MENU: ubah href atau teks pada tag <a class="nav-link">
 ================================================================ -->
-<header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+<header id="navbar" class="safe-top fixed inset-x-0 top-0 z-50 transition-all duration-500">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     <div class="flex items-center justify-between py-4">
 
@@ -276,7 +305,7 @@
       </div>
 
       <!-- TOMBOL TOGGLE MENU MOBILE -->
-      <button id="menuBtn" aria-label="Buka menu navigasi" class="rounded-sm border border-gold/40 p-2 transition hover:bg-[#efe6c9] lg:hidden">
+      <button id="menuBtn" aria-label="Buka menu navigasi" class="rounded-sm border border-gold/40 p-2.5 transition hover:bg-[#efe6c9] lg:hidden">
         <i data-lucide="menu" class="h-6 w-6 text-[#8a6d2a]"></i>
       </button>
     </div>
@@ -284,13 +313,13 @@
 
   <!-- MENU MOBILE (dropdown) — EDIT: samakan isinya dengan menu desktop -->
   <div id="mobileMenu" class="hidden border-t border-gold/20 bg-paper/95 backdrop-blur-xl lg:hidden">
-    <nav class="flex flex-col gap-1 px-6 py-5 text-sm uppercase tracking-[.2em]">
-      <a href="#beranda" class="mobile-link flex items-center justify-between py-2.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Beranda</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
-      <a href="#tentang" class="mobile-link flex items-center justify-between py-2.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Tentang</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
-      <a href="#visi-misi" class="mobile-link flex items-center justify-between py-2.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Visi &amp; Misi</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
-      <a href="#layanan" class="mobile-link flex items-center justify-between py-2.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Layanan</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
-      <a href="#portofolio" class="mobile-link flex items-center justify-between py-2.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Portofolio</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
-      <a href="#kontak" class="mobile-link flex items-center justify-between py-2.5 text-[#8a6d2a]"><span>Hubungi Kami</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+    <nav class="flex flex-col gap-1.5 px-6 py-5 text-[15px] uppercase tracking-[.2em]">
+      <a href="#beranda" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Beranda</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
+      <a href="#tentang" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Tentang</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
+      <a href="#visi-misi" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Visi &amp; Misi</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
+      <a href="#layanan" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Layanan</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
+      <a href="#portofolio" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Portofolio</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
+      <a href="#kontak" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-[#8a6d2a]"><span>Hubungi Kami</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
     </nav>
   </div>
 </header>
@@ -299,7 +328,7 @@
      ============================================================
      EDIT TEKS: ganti kalimat di <h1>, <p>, dan label tombol.
 ================================================================ -->
-<section id="beranda" class="relative z-10 flex min-h-screen flex-col justify-center overflow-hidden pt-28 pb-16">
+<section id="beranda" class="hero-height relative z-10 flex min-h-screen flex-col justify-center overflow-hidden pt-28 pb-16">
 
   <!-- LATAR: grid emas halus (dekoratif, tidak perlu diubah) -->
   <div class="absolute inset-0 bg-grid opacity-60" style="-webkit-mask-image:radial-gradient(ellipse 80% 62% at 50% 32%, #000, transparent);mask-image:radial-gradient(ellipse 80% 62% at 50% 32%, #000, transparent);" aria-hidden="true"></div>
@@ -320,8 +349,8 @@
 
       <!-- JUDUL UTAMA (EDIT NAMA PERUSAHAAN DI SINI) -->
       <h1 class="reveal reveal-d1 mt-7 font-display leading-[1.02] text-navy">
-        <span class="block text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">NUANSA <em class="text-gold-grad font-medium italic">KREASI</em></span>
-        <span class="mt-2 block text-5xl font-medium tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">SEMESTA</span>
+        <span class="block text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">NUANSA <em class="text-gold-grad font-medium italic">KREASI</em></span>
+        <span class="mt-2 block text-4xl font-medium tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">SEMESTA</span>
       </h1>
 
       <!-- SUBJUDUL / DESKRIPSI SINGKAT (EDIT DI SINI) -->
@@ -601,7 +630,7 @@
       <!-- ============ KARTU BESAR: EVENT ORGANIZER & MICE ============
            EDIT TEKS di <h3> dan <ul> di bawah ini.
            Mengisi area 4 kolom x 2 baris pada bento grid. -->
-      <a href="#kontak" class="gold-frame group relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-sm p-8 transition-all duration-500 hover:shadow-[0_34px_70px_-35px_rgba(138,109,42,.5)] md:p-10 lg:col-span-4 lg:row-span-2">
+      <a href="#kontak" class="gold-frame group relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-sm p-8 transition-all duration-500 hover:shadow-[0_34px_70px_-35px_rgba(138,109,42,.5)] md:col-span-2 md:p-10 lg:col-span-4 lg:row-span-2">
         <!-- cahaya dekoratif kartu -->
         <div class="absolute inset-0 opacity-70 transition duration-700 group-hover:opacity-100" style="background:radial-gradient(ellipse 70% 55% at 85% 15%, rgba(212,175,55,.16), transparent 60%);"></div>
         <div class="relative">
@@ -624,7 +653,7 @@
 
       <!-- ============ KARTU: PERDAGANGAN BESAR ============
            EDIT TEKS di <h3> dan chip di bawah ini. -->
-      <a href="#kontak" class="glass-card group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 md:p-8 lg:col-span-2">
+      <a href="#kontak" class="glass-card group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 md:col-span-2 md:p-8 lg:col-span-2">
         <div>
           <span class="rounded-full border border-gold/40 bg-white/60 px-4 py-1 text-[11px] uppercase tracking-[.3em] text-[#8a6d2a]">Bidang 02</span>
           <h3 class="mt-6 font-display text-2xl text-navy">Perdagangan Besar</h3>
@@ -698,7 +727,7 @@
 
       <!-- ============ KARTU LEBAR: CATERING ============
            Kartu lebar (4 kolom) di baris bawah bento. -->
-      <div class="glass-card reveal group relative flex flex-col justify-between gap-6 overflow-hidden rounded-sm p-8 transition-all duration-500 hover:border-gold/45 sm:flex-row sm:items-center lg:col-span-4">
+      <div class="glass-card reveal group relative flex flex-col justify-between gap-6 overflow-hidden rounded-sm p-8 transition-all duration-500 hover:border-gold/45 sm:flex-row sm:items-center md:col-span-2 lg:col-span-4">
         <div class="flex items-start gap-5">
           <span class="grid h-14 w-14 shrink-0 place-items-center border border-gold/40 bg-white/60"><i data-lucide="utensils-crossed" class="h-7 w-7 text-gold"></i></span>
           <div>
@@ -894,9 +923,17 @@
 </footer>
 
 <!-- ============================================================
+     TOMBOL WHATSAPP MENGAMBANG (diperlihatkan di HP/iPad)
+     EDIT NOMOR: ubah angka pada href="https://wa.me/...".
+================================================================ -->
+<a id="waFab" href="https://wa.me/6281317777366" target="_blank" rel="noopener" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 z-40 grid h-14 w-14 place-items-center rounded-full text-white shadow-[0_16px_40px_-16px_rgba(37,211,102,.7)] transition hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#2fd671,#1e9e56);">
+  <i data-lucide="message-circle" class="h-7 w-7"></i>
+</a>
+
+<!-- ============================================================
      TOMBOL "KEMBALI KE ATAS" (muncul otomatis saat halaman discroll)
 ================================================================ -->
-<button id="backTop" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-white text-[#8a6d2a] shadow-[0_12px_30px_-12px_rgba(138,109,42,.5)] transition hover:bg-gold hover:text-white">
+<button id="backTop" aria-label="Kembali ke atas" class="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-white text-[#8a6d2a] shadow-[0_12px_30px_-12px_rgba(138,109,42,.5)] transition hover:bg-gold hover:text-white">
   <i data-lucide="chevron-up" class="h-5 w-5"></i>
 </button>
 <!-- ============================================================
