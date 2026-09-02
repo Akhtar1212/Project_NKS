@@ -235,9 +235,21 @@
   @keyframes splashBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   .splash-fade-item { opacity: 0; animation: splashFade .9s ease forwards; }
   @keyframes splashFade { to { opacity: 1; } }
+
+  /* PROGRESS BAR EMAS — garis tipis di paling atas halaman */
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; z-index: 60;
+    height: 3px; width: 0%;
+    background: linear-gradient(90deg, #a67c1f, #d4af37, #f0e3b6, #d4af37, #a67c1f);
+    box-shadow: 0 0 14px rgba(212,175,55,.65);
+    pointer-events: none;
+  }
 </style>
 </head>
 <body class="antialiased">
+
+<!-- PROGRESS BAR EMAS (menunjukkan posisi halaman saat digulir) -->
+<div id="scrollProgress" aria-hidden="true"></div>
 
 <!-- ============================================================
      SPLASH SCREEN (LAYAR PEMBUKA) — MUNCUL SAAT HALAMAN DIBUKA
@@ -400,22 +412,22 @@
         </a>
       </div>
 
-      <!-- ANGKA-ANGKA SINGKAT (EDIT ANGKA & LABEL DI SETIAP KOLOM) -->
+      <!-- ANGKA-ANGKA SINGKAT — dihitung naik otomatis saat terlihat (EDIT angka di data-count) -->
       <div class="reveal reveal-d4 mt-16 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-sm border border-gold/30 bg-gold/30 shadow-[0_20px_45px_-25px_rgba(138,109,42,.4)] sm:grid-cols-4">
         <div class="bg-white/75 px-6 py-6">
-          <p class="font-display text-3xl text-gold-grad">2019</p>
+          <p class="font-display text-3xl text-gold-grad" data-count="2019">0</p>
           <p class="mt-2 text-[10px] uppercase tracking-[.22em] text-slate-500">Tahun berdiri</p>
         </div>
         <div class="bg-white/75 px-6 py-6">
-          <p class="font-display text-3xl text-gold-grad">02</p>
+          <p class="font-display text-3xl text-gold-grad" data-count="2" data-pad="2">0</p>
           <p class="mt-2 text-[10px] uppercase tracking-[.22em] text-slate-500">Bidang usaha</p>
         </div>
         <div class="bg-white/75 px-6 py-6">
-          <p class="font-display text-3xl text-gold-grad">06</p>
+          <p class="font-display text-3xl text-gold-grad" data-count="6" data-pad="2">0</p>
           <p class="mt-2 text-[10px] uppercase tracking-[.22em] text-slate-500">Nilai AKHLAK</p>
         </div>
         <div class="bg-white/75 px-6 py-6">
-          <p class="font-display text-3xl text-gold-grad">7+</p>
+          <p class="font-display text-3xl text-gold-grad" data-count="7" data-suffix="+">0</p>
           <p class="mt-2 text-[10px] uppercase tracking-[.22em] text-slate-500">Tahun berjalan</p>
         </div>
       </div>
@@ -914,6 +926,11 @@
         </div>
       </div>
     </div>
+
+    <!-- PETA LOKASI KANTOR (EDIT: ubah query= jika alamat berubah) -->
+    <div class="reveal reveal-d2 mt-14 overflow-hidden rounded-sm border border-gold/30 shadow-[0_24px_60px_-32px_rgba(138,109,42,.5)]">
+      <iframe title="Lokasi kantor PT. Nuansa Kreasi Semesta" src="https://www.google.com/maps?q=Jl.+Dukuh+Zamrud+Blok+L5+No.+6+Padurenan+Mustikajaya+Bekasi&output=embed" class="h-72 w-full border-0 sm:h-80 md:h-96" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 <!-- ============================================================
@@ -1056,6 +1073,76 @@
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
   setTimeout(initReveal, 6000); // pengaman: reveal tetap jalan meski ada kendala
+
+  // 5) PROGRESS BAR EMAS — lebar mengikuti posisi scroll
+  const progressBar = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // 6) SCROLLSPY — menu navigasi aktif mengikuti posisi halaman
+  const sectionIds = ['beranda', 'tentang', 'visi-misi', 'layanan', 'portofolio', 'kontak'];
+  const spy = () => {
+    let current = 'beranda';
+    const probe = window.scrollY + 160;
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= probe) current = id;
+    });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      const on = a.getAttribute('href') === '#' + current;
+      a.classList.toggle('text-[#8a6d2a]', on);
+      a.classList.toggle('font-semibold', on);
+    });
+  };
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+
+  // 7) ANGKA STATISTIK BERJALAN (count-up) saat hero terlihat
+  const animateCount = (el) => {
+    const target = parseInt(el.dataset.count || '0', 10);
+    const pad = parseInt(el.dataset.pad || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.round(target * eased);
+      el.textContent = (pad ? String(val).padStart(pad, '0') : String(val)) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { animateCount(en.target); countIO.unobserve(en.target); }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+  // 8) EFEK TILT 3D — kartu layanan & klien mengikuti kursor (desktop saja)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !isReducedMotion) {
+    document.querySelectorAll('#layanan .bento-item, #layanan .gold-frame, #portofolio .client-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = 'none';
+        card.style.transform = 'perspective(900px) rotateX(' + (-y * 5) + 'deg) rotateY(' + (x * 5) + 'deg) translateZ(4px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform .3s ease';
+        card.style.transform = '';
+        setTimeout(() => { card.style.transition = ''; }, 300);
+      });
+    });
+  }
 </script>
 
 </body>
