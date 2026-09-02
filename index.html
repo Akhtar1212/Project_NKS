@@ -174,6 +174,20 @@
   :root { --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px); }
   .safe-top { padding-top: var(--safe-top); }
 
+  /* Setiap target anchor punya jarak aman dari navbar (iOS/Android) */
+  [id] { scroll-margin-top: 6.5rem; }
+
+  /* Latar ambient global dihilangkan di ponsel agar gulir mulus & tidak melompat */
+  @media (max-width: 767px) { .ambient-fixed { display: none; } }
+
+  /* Di layar sentuh, efek "hover" jangan menempel setelah diketuk
+     (mencegah kartu/tombol terlihat melompat-lompat) */
+  @media (hover: none) {
+    .btn-gold:hover, .btn-ghost-gold:hover,
+    .hover\:-translate-y-1:hover, .hover\:-translate-y-1\.5:hover { transform: none; }
+    .group:hover .group-hover\:scale-110 { transform: none; }
+  }
+
   /* Hilangkan kilatan biru bawaan browser saat ketukan di HP/iPad */
   body { -webkit-tap-highlight-color: transparent; }
 
@@ -267,7 +281,7 @@
      DEKORASI CAHAYA AMBIENT GLOBAL (LATAR SELURUH HALAMAN)
      Bola cahaya lembut di belakang konten. Biarkan apa adanya.
 ================================================================ -->
-<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+<div class="ambient-fixed pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
   <div class="orb -top-24 -left-24 h-[420px] w-[420px]" style="background:radial-gradient(circle, rgba(214,164,84,.30), transparent 65%);"></div>
   <div class="orb -right-40 top-1/3 h-[520px] w-[520px]" style="background:radial-gradient(circle, rgba(160,180,230,.18), transparent 65%);"></div>
   <div class="orb bottom-0 left-1/3 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(232,195,120,.22), transparent 65%);"></div>
@@ -975,6 +989,24 @@
   document.querySelectorAll('.mobile-link').forEach(link =>
     link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
   );
+
+  // 2b) Scroll halus & presisi untuk SEMUA tautan internal (a[href^="#"])
+  //   Memakai offset dinamis agar selalu mendarat tepat, tidak lompat acak.
+  //   Juga menangani iOS/Android yang mendaratkan anchor di bawah navbar.
+  const navbarEl = document.getElementById('navbar');
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const navOffset = () => (navbarEl ? navbarEl.offsetHeight + 10 : 100);
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      const target = href && href.length > 1 ? document.querySelector(href) : null;
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: isReducedMotion ? 'auto' : 'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
 
   // 3) Navbar transparan -> putih saat user scroll + tombol back-to-top
   const navbar = document.getElementById('navbar');
