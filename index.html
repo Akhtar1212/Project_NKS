@@ -75,13 +75,25 @@
   html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
   body {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
     background-color: #f7f4ee;
-    color: #3f4657;
+    color: #2c3450;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
+
+  /* ================================================================
+     PENYESUAIAN VISIBILITAS TEKS — teks dibuat lebih tebal & pekat
+     agar mudah dibaca. EDIT kekentalan/warna di bawah sesuai selera.
+  ================================================================ */
+  /* Teks isi & paragraf di area terang: lebih pekat + medium */
+  body .text-slate-600 { color: #374058; font-weight: 500; }
+  /* Label kecil di area terang: sedikit lebih pekat */
+  body .text-slate-500 { color: #5a6477; }
+  /* Khusus footer (latar navy pekat): biarkan tetap terang agar terbaca */
+  footer .text-slate-500, footer .text-slate-600 { color: #9aa3b5; }
   ::selection { background: rgba(212, 175, 55, .3); color: #1c2742; }
 
   /* Scrollbar emas */
@@ -103,7 +115,7 @@
   @keyframes shimmer { to { background-position: 200% center; } }
 
   /* Label kecil di atas judul section (eyebrow) */
-  .eyebrow { letter-spacing: .42em; text-transform: uppercase; color: #8a6d2a; font-weight: 600; font-size: .72rem; }
+  .eyebrow { letter-spacing: .42em; text-transform: uppercase; color: #7a5f16; font-weight: 700; font-size: .72rem; }
 
   /* Kartu kaca terang (frosted glass putih) */
   .glass-card {
@@ -370,7 +382,7 @@
       <!-- JUDUL UTAMA (EDIT NAMA PERUSAHAAN DI SINI) -->
       <h1 class="reveal reveal-d1 mt-7 font-display leading-[1.02] text-navy">
         <span class="block text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">NUANSA <em class="text-gold-grad font-medium italic">KREASI</em></span>
-        <span class="mt-2 block text-4xl font-medium tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">SEMESTA</span>
+        <span class="mt-2 block text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">SEMESTA</span>
       </h1>
 
       <!-- SUBJUDUL / DESKRIPSI SINGKAT (EDIT DI SINI) -->
