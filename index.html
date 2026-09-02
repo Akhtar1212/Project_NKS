@@ -156,9 +156,77 @@
   /* Indikator scroll di hero */
   @keyframes scrollDot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
   .scroll-dot { animation: scrollDot 2s ease-in-out infinite; }
+
+  /* ================================================================
+     SPLASH SCREEN (LAYAR PEMBUKA) — ANIMASI
+     ================================================================ */
+  #splash { transition: opacity .75s ease, visibility .75s ease; }
+  #splash.exit { opacity: 0; visibility: hidden; pointer-events: none; }
+  @keyframes splashSpin    { to { transform: rotate(360deg); } }
+  @keyframes splashSpinRev { to { transform: rotate(-360deg); } }
+  .splash-ring     { animation: splashSpin    16s linear infinite; }
+  .splash-ring-rev { animation: splashSpinRev 22s linear infinite; }
+  .splash-letter   { display: inline-block; opacity: 0; transform: translateY(16px); animation: splashLetter .55s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes splashLetter { to { opacity: 1; transform: translateY(0); } }
+  .splash-word { margin: 0 .34em; }
+  .splash-word:first-child { margin-left: 0; }
+  .splash-bar { transform-origin: left; animation: splashBar 1.9s cubic-bezier(.22,1,.36,1) .45s forwards; }
+  @keyframes splashBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .splash-fade-item { opacity: 0; animation: splashFade .9s ease forwards; }
+  @keyframes splashFade { to { opacity: 1; } }
 </style>
 </head>
 <body class="antialiased">
+
+<!-- ============================================================
+     SPLASH SCREEN (LAYAR PEMBUKA) — MUNCUL SAAT HALAMAN DIBUKA
+     ============================================================
+     - Otomatis tertutup setelah ~3 detik, atau klik tombol "Masuk".
+     EDIT TEKS: ubah huruf-huruf nama di bawah atau kata pada tombol.
+================================================================ -->
+<div id="splash" class="fixed inset-0 z-[100] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+  <!-- LATAR SPLASH (dekoratif, tidak perlu diubah) -->
+  <div class="absolute inset-0 bg-grid opacity-50" aria-hidden="true"></div>
+  <div class="orb -top-24 right-0 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(214,164,84,.28), transparent 65%);" aria-hidden="true"></div>
+  <div class="orb -bottom-24 left-0 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(160,180,230,.16), transparent 65%);" aria-hidden="true"></div>
+
+  <div class="relative flex flex-col items-center">
+    <!-- CINCIN BERPUTAR + LOGO MONOGRAM NKS -->
+    <div class="relative mb-10 h-40 w-40">
+      <div class="splash-ring absolute inset-0 rounded-full border border-gold/25" style="border-top-color:#c9a24b;border-right-color:#c9a24b;"></div>
+      <div class="splash-ring-rev absolute inset-3 rounded-full border border-gold/20" style="border-bottom-color:#b8953a;border-left-color:#b8953a;"></div>
+      <div class="absolute inset-0 grid place-items-center">
+        <span class="font-display text-5xl font-bold tracking-widest text-gold-grad">NKS</span>
+      </div>
+    </div>
+
+    <!-- NAMA PERUSAHAAN — HURUF MUNCUL SATU PER SATU (EDIT TEKS DI SINI) -->
+    <p class="flex max-w-3xl flex-wrap justify-center text-center font-display text-xl font-semibold uppercase tracking-[.22em] text-navy sm:text-2xl">
+      <span class="splash-word">
+        <span class="splash-letter" style="animation-delay:.30s">N</span><span class="splash-letter" style="animation-delay:.35s">U</span><span class="splash-letter" style="animation-delay:.40s">A</span><span class="splash-letter" style="animation-delay:.45s">N</span><span class="splash-letter" style="animation-delay:.50s">S</span><span class="splash-letter" style="animation-delay:.55s">A</span>
+      </span>
+      <span class="splash-word">
+        <span class="splash-letter" style="animation-delay:.65s">K</span><span class="splash-letter" style="animation-delay:.70s">R</span><span class="splash-letter" style="animation-delay:.75s">E</span><span class="splash-letter" style="animation-delay:.80s">A</span><span class="splash-letter" style="animation-delay:.85s">S</span><span class="splash-letter" style="animation-delay:.90s">I</span>
+      </span>
+      <span class="splash-word">
+        <span class="splash-letter" style="animation-delay:1.00s">S</span><span class="splash-letter" style="animation-delay:1.05s">E</span><span class="splash-letter" style="animation-delay:1.10s">M</span><span class="splash-letter" style="animation-delay:1.15s">E</span><span class="splash-letter" style="animation-delay:1.20s">S</span><span class="splash-letter" style="animation-delay:1.25s">T</span><span class="splash-letter" style="animation-delay:1.30s">A</span>
+      </span>
+    </p>
+
+    <!-- GARIS EMAS SEDANG MENGISI (LOADING) -->
+    <div class="mt-7 h-px w-52 overflow-hidden bg-gold/20 sm:w-64">
+      <div class="splash-bar h-full bg-gradient-to-r from-gold/50 via-gold to-gold/50"></div>
+    </div>
+
+    <!-- TAGLINE -->
+    <p class="splash-fade-item mt-6 text-center text-[10px] uppercase tracking-[.5em] text-[#8a6d2a]" style="animation-delay:1.25s">Event Organizer · Perdagangan Besar</p>
+
+    <!-- TOMBOL MASUK (SKIP SPLASH) -->
+    <button id="splashEnter" class="splash-fade-item btn-gold mt-9 inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-[11px] uppercase tracking-[.25em]" style="animation-delay:1.5s">
+      Masuk <i data-lucide="arrow-right" class="h-4 w-4"></i>
+    </button>
+  </div>
+</div>
 
 <!-- ============================================================
      DEKORASI CAHAYA AMBIENT GLOBAL (LATAR SELURUH HALAMAN)
@@ -839,6 +907,24 @@
   // 1) Render semua ikon Lucide yang ada di halaman
   lucide.createIcons();
 
+  // 1b) SPLASH SCREEN — layar pembuka, otomatis tertutup atau klik "Masuk"
+  const splash = document.getElementById('splash');
+  const splashEnter = document.getElementById('splashEnter');
+  let splashDone = false;
+  document.body.style.overflow = 'hidden'; // kunci scroll selama splash tampil
+  const dismissSplash = () => {
+    if (splashDone) return;
+    splashDone = true;
+    splash.classList.add('exit');
+    document.body.style.overflow = '';
+    setTimeout(() => { splash.remove(); initReveal(); }, 800);
+  };
+  // klik tombol "Masuk" -> langsung tutup
+  splashEnter.addEventListener('click', dismissSplash);
+  // penutupan otomatis setelah kurang lebih 3 detik
+  window.addEventListener('load', () => setTimeout(dismissSplash, 2800));
+  setTimeout(dismissSplash, 6000); // pengaman: jalankan jika 'load' lambat
+
   // 2) Toggle menu mobile
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -867,15 +953,22 @@
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // 4) Animasi reveal saat elemen masuk viewport
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  //    (dijalankan setelah splash tertutup agar hero tampil beranimasi)
+  let revealReady = false;
+  function initReveal() {
+    if (revealReady) return;
+    revealReady = true;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+  setTimeout(initReveal, 6000); // pengaman: reveal tetap jalan meski ada kendala
 </script>
 
 </body>
