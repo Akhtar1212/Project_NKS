@@ -8,63 +8,37 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="format-detection" content="telephone=no" />
-<title>PT. Nuansa Kreasi Semesta — Event Organizer &amp; Perdagangan Besar</title>
+<title>PT. Nuansa Kreasi Semesta â€” Event Organizer &amp; Perdagangan Besar</title>
 <meta name="description" content="Website resmi PT. Nuansa Kreasi Semesta, jasa event organizer dan perdagangan besar di Kota Bekasi, Jawa Barat. Berdiri sejak 2019." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f7f4ee'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23a67c1f' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' font-weight='bold' fill='%23a67c1f' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
 
-<!-- ================================================================
-  PT. NUANSA KREASI SEMESTA — WEBSITE PORTOFOLIO KORPORAT
-  ----------------------------------------------------------------
-  PANDUAN MENGEDIT CEPAT (BACA INI DULU):
-  1) SEMUA TEKS mudah diganti langsung di dalam tag HTML. Cari komentar
-     berisi "EDIT" di setiap section — ganti kalimatnya tanpa merusak desain.
-  2) STRUKTUR LAYOUT DIPISAH dari teks isi. Ingin menambah kartu / item /
-     menu? Cukup SALIN satu blok kartu yang sudah diberi komentar lalu
-     tempel di bawahnya — grid akan menyesuaikan otomatis.
-  3) WARNA UTAMA: ubah di <script> tailwind.config (colors: gold, navy,
-     ink, cream, paper). gold = aksen emas, navy = warna teks/tulisan.
-  4) IKON memakai Lucide Icons. Cek katalog ikon: https://lucide.dev/icons
-     Contoh: <i data-lucide="mic-vocal"></i> — ganti nama ikonnya bebas.
-  5) Aplikasi WAJIB terhubung internet saat dibuka (CDN Tailwind & Lucide).
-================================================================ -->
-
-<!-- CDN: Tailwind CSS (dipakai untuk semua utility class) -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- CDN: Lucide Icons (dipakai untuk semua ikon) -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
-<!-- Font: Playfair Display (serif utk judul) + Inter (sans utk teks) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<!-- Vercel Web Analytics -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 
-<!-- Vercel Speed Insights -->
 <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-
-<!-- ================================================================
-     KONFIGURASI TEMA TAILWIND — EDIT WARNA UTAMA DI BAGIAN INI
-     Tema terang: latar ivory, kartu putih, aksen emas.
-================================================================ -->
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          ink:    '#0d1526',   /* EDIT: navy pekat untuk footer/tombol gelap */
-          navy:   '#1c2742',   /* EDIT: warna teks judul/isi */
-          gold:   '#a67c1f',   /* EDIT: aksen emas utama */
-          cream:  '#f7f4ee',   /* EDIT: latar halaman (ivory hangat) */
-          paper:  '#fbf9f4',   /* EDIT: warna kartu putih hangat */
+          ink:    '#0d1526',   
+          navy:   '#1c2742',   
+          gold:   '#a67c1f',   
+          cream:  '#f7f4ee',   
+          paper:  '#fbf9f4',   
         },
         fontFamily: {
           display: ['"Playfair Display"', 'serif'],
@@ -73,10 +47,7 @@
     },
   }
 </script>
-<!-- ================================================================
-     STYLE KUSTOM — DEKORASI, HELAI EMAS, GLOW, ANIMASI
-     (Rekomendasi: biarkan apa adanya kecuali ingin identitas custom)
-================================================================ -->
+
 <style>
   html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
   body {
@@ -90,27 +61,24 @@
     -webkit-text-size-adjust: 100%;
   }
 
-  /* ================================================================
-     PENYESUAIAN VISIBILITAS TEKS — teks dibuat lebih tebal & pekat
-     agar mudah dibaca. EDIT kekentalan/warna di bawah sesuai selera.
-  ================================================================ */
-  /* Teks isi & paragraf di area terang: lebih pekat + medium */
+  
+  
   body .text-slate-600 { color: #374058; font-weight: 500; }
-  /* Label kecil di area terang: sedikit lebih pekat */
+  
   body .text-slate-500 { color: #5a6477; }
-  /* Khusus footer (latar navy pekat): biarkan tetap terang agar terbaca */
+  
   footer .text-slate-500, footer .text-slate-600 { color: #9aa3b5; }
   ::selection { background: rgba(212, 175, 55, .3); color: #1c2742; }
 
-  /* Scrollbar emas */
+  
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: #eee8db; }
   ::-webkit-scrollbar-thumb { background: linear-gradient(#a67c1f, #d4af37); border-radius: 10px; }
 
-  /* Font judul serif */
+  
   .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
-  /* Teks gradasi emas (efek logam) — kontras baik di latar terang */
+  
   .text-gold-grad {
     background: linear-gradient(100deg, #8a6d2a 0%, #c6a14d 32%, #f0e3b6 50%, #c6a14d 68%, #8a6d2a 100%);
     background-size: 200% auto;
@@ -120,10 +88,10 @@
   }
   @keyframes shimmer { to { background-position: 200% center; } }
 
-  /* Label kecil di atas judul section (eyebrow) */
+  
   .eyebrow { letter-spacing: .42em; text-transform: uppercase; color: #7a5f16; font-weight: 700; font-size: .72rem; }
 
-  /* Kartu kaca terang (frosted glass putih) */
+  
   .glass-card {
     background: linear-gradient(165deg, rgba(255,255,255,.86), rgba(251,249,244,.72));
     -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
@@ -131,7 +99,7 @@
     box-shadow: 0 22px 50px -30px rgba(28,39,66,.22);
   }
 
-  /* Bingkai emas elegan (kutipan / kartu utama) — efek border gradasi */
+  
   .gold-frame {
     position: relative;
     background: linear-gradient(160deg, #fffdf8, #f4eedd);
@@ -145,7 +113,7 @@
     -webkit-mask-composite: xor; mask-composite: exclude;
   }
 
-  /* Tombol emas elegan */
+  
   .btn-gold {
     background: linear-gradient(110deg, #a8842f, #d4af37 45%, #f3e6b8 52%, #d4af37 60%, #a8842f);
     background-size: 200% auto; color: #221804; font-weight: 600;
@@ -156,7 +124,7 @@
   .btn-ghost-gold { border: 1px solid rgba(138,109,42,.55); color: #5c4a16; transition: all .3s ease; }
   .btn-ghost-gold:hover { background: rgba(230,210,150,.22); border-color: #a67c1f; transform: translateY(-2px); }
 
-  /* Grid emas halus untuk latar hero */
+  
   .bg-grid {
     background-image:
       linear-gradient(rgba(166,124,31,.12) 1px, transparent 1px),
@@ -164,12 +132,12 @@
     background-size: 72px 72px;
   }
 
-  /* Link menu navbar — garis emas muncul saat hover */
+  
   .nav-link { position: relative; padding-bottom: 4px; }
   .nav-link::after { content:""; position:absolute; left:0; bottom:-2px; height:1px; width:0; background:linear-gradient(90deg,#a67c1f,#8a6d2a); transition:width .35s ease; }
   .nav-link:hover::after { width:100%; }
 
-  /* Animasi muncul saat scroll (reveal) */
+  
   .reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); }
   .reveal.visible { opacity: 1; transform: none; }
   .reveal-d1 { transition-delay: .12s; }
@@ -177,42 +145,41 @@
   .reveal-d3 { transition-delay: .36s; }
   .reveal-d4 { transition-delay: .48s; }
 
-  /* Marquee klien berjalan halus */
+  
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
 
-  /* Cahaya ambient (bola cahaya kabur lembut) */
+  
   .orb { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .5; pointer-events: none; }
 
-  /* Tinggi layar penuh yang aman untuk mobile/iPad (SVH menyesuaikan URL-bar) */
+  
   .hero-height { min-height: 100vh; }
   @supports (min-height: 100svh) { .hero-height { min-height: 100svh; } }
 
-  /* Area aman layar ber-notch / ber-home-indicator (iOS & Android) */
+  
   :root { --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px); }
   .safe-top { padding-top: var(--safe-top); }
 
-  /* Setiap target anchor punya jarak aman dari navbar (iOS/Android) */
+  
   [id] { scroll-margin-top: 6.5rem; }
 
-  /* Latar ambient global dihilangkan di ponsel agar gulir mulus & tidak melompat */
+  
   @media (max-width: 767px) { .ambient-fixed { display: none; } }
 
-  /* Di layar sentuh, efek "hover" jangan menempel setelah diketuk
-     (mencegah kartu/tombol terlihat melompat-lompat) */
+  
   @media (hover: none) {
     .btn-gold:hover, .btn-ghost-gold:hover,
     .hover\:-translate-y-1:hover, .hover\:-translate-y-1\.5:hover { transform: none; }
     .group:hover .group-hover\:scale-110 { transform: none; }
   }
 
-  /* Hilangkan kilatan biru bawaan browser saat ketukan di HP/iPad */
+  
   body { -webkit-tap-highlight-color: transparent; }
 
-  /* Orb lebih ringan & lebih tajam di layar kecil agar tetap halus */
+  
   @media (max-width: 640px) { .orb { filter: blur(48px); opacity: .45; } }
 
-  /* Hormati pengaturan "reduce motion" untuk kenyamanan & aksesibilitas */
+  
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-track, .text-gold-grad, .splash-ring, .splash-ring-rev, .splash-bar, .scroll-dot { animation: none !important; }
@@ -220,13 +187,11 @@
     .splash-letter, .splash-fade-item { opacity: 1 !important; transform: none !important; animation: none !important; }
   }
 
-  /* Indikator scroll di hero */
+  
   @keyframes scrollDot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
   .scroll-dot { animation: scrollDot 2s ease-in-out infinite; }
 
-  /* ================================================================
-     SPLASH SCREEN (LAYAR PEMBUKA) — ANIMASI
-     ================================================================ */
+  
   #splash { transition: opacity .75s ease, visibility .75s ease; }
   #splash.exit { opacity: 0; visibility: hidden; pointer-events: none; }
   @keyframes splashSpin    { to { transform: rotate(360deg); } }
@@ -242,7 +207,7 @@
   .splash-fade-item { opacity: 0; animation: splashFade .9s ease forwards; }
   @keyframes splashFade { to { opacity: 1; } }
 
-  /* PROGRESS BAR EMAS — garis tipis di paling atas halaman */
+  
   #scrollProgress {
     position: fixed; top: 0; left: 0; z-index: 60;
     height: 3px; width: 0%;
@@ -254,23 +219,16 @@
 </head>
 <body class="antialiased">
 
-<!-- PROGRESS BAR EMAS (menunjukkan posisi halaman saat digulir) -->
 <div id="scrollProgress" aria-hidden="true"></div>
 
-<!-- ============================================================
-     SPLASH SCREEN (LAYAR PEMBUKA) — MUNCUL SAAT HALAMAN DIBUKA
-     ============================================================
-     - Otomatis tertutup setelah ~3 detik, atau klik tombol "Masuk".
-     EDIT TEKS: ubah huruf-huruf nama di bawah atau kata pada tombol.
-================================================================ -->
 <div id="splash" class="hero-height fixed inset-0 z-[100] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
-  <!-- LATAR SPLASH (dekoratif, tidak perlu diubah) -->
+  
   <div class="absolute inset-0 bg-grid opacity-50" aria-hidden="true"></div>
   <div class="orb -top-24 right-0 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(214,164,84,.28), transparent 65%);" aria-hidden="true"></div>
   <div class="orb -bottom-24 left-0 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(160,180,230,.16), transparent 65%);" aria-hidden="true"></div>
 
   <div class="relative flex flex-col items-center">
-    <!-- CINCIN BERPUTAR + LOGO MONOGRAM NKS -->
+    
     <div class="relative mb-10 h-40 w-40">
       <div class="splash-ring absolute inset-0 rounded-full border border-gold/25" style="border-top-color:#c9a24b;border-right-color:#c9a24b;"></div>
       <div class="splash-ring-rev absolute inset-3 rounded-full border border-gold/20" style="border-bottom-color:#b8953a;border-left-color:#b8953a;"></div>
@@ -279,7 +237,7 @@
       </div>
     </div>
 
-    <!-- NAMA PERUSAHAAN — HURUF MUNCUL SATU PER SATU (EDIT TEKS DI SINI) -->
+    
     <p class="flex max-w-3xl flex-wrap justify-center text-center font-display text-xl font-semibold uppercase tracking-[.22em] text-navy sm:text-2xl">
       <span class="splash-word">
         <span class="splash-letter" style="animation-delay:.30s">N</span><span class="splash-letter" style="animation-delay:.35s">U</span><span class="splash-letter" style="animation-delay:.40s">A</span><span class="splash-letter" style="animation-delay:.45s">N</span><span class="splash-letter" style="animation-delay:.50s">S</span><span class="splash-letter" style="animation-delay:.55s">A</span>
@@ -292,44 +250,32 @@
       </span>
     </p>
 
-    <!-- GARIS EMAS SEDANG MENGISI (LOADING) -->
+    
     <div class="mt-7 h-px w-52 overflow-hidden bg-gold/20 sm:w-64">
       <div class="splash-bar h-full bg-gradient-to-r from-gold/50 via-gold to-gold/50"></div>
     </div>
 
-    <!-- TAGLINE -->
-    <p class="splash-fade-item mt-6 text-center text-[10px] uppercase tracking-[.5em] text-[#8a6d2a]" style="animation-delay:1.25s">Event Organizer · Perdagangan Besar</p>
+    
+    <p class="splash-fade-item mt-6 text-center text-[10px] uppercase tracking-[.5em] text-[#8a6d2a]" style="animation-delay:1.25s">Event Organizer Â· Perdagangan Besar</p>
 
-    <!-- TOMBOL MASUK (SKIP SPLASH) -->
+    
     <button id="splashEnter" class="splash-fade-item btn-gold mt-9 inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-[11px] uppercase tracking-[.25em]" style="animation-delay:1.5s">
       Masuk <i data-lucide="arrow-right" class="h-4 w-4"></i>
     </button>
   </div>
 </div>
 
-<!-- ============================================================
-     DEKORASI CAHAYA AMBIENT GLOBAL (LATAR SELURUH HALAMAN)
-     Bola cahaya lembut di belakang konten. Biarkan apa adanya.
-================================================================ -->
 <div class="ambient-fixed pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
   <div class="orb -top-24 -left-24 h-[420px] w-[420px]" style="background:radial-gradient(circle, rgba(214,164,84,.30), transparent 65%);"></div>
   <div class="orb -right-40 top-1/3 h-[520px] w-[520px]" style="background:radial-gradient(circle, rgba(160,180,230,.18), transparent 65%);"></div>
   <div class="orb bottom-0 left-1/3 h-[380px] w-[380px]" style="background:radial-gradient(circle, rgba(232,195,120,.22), transparent 65%);"></div>
 </div>
 
-<!-- ============================================================
-     SECTION 1: NAVBAR / HEADER (STICKY, MENEMPEL DI ATAS)
-     ============================================================
-     - KIRI  : logo monogram "NKS" + nama perusahaan
-     - TENGAH: menu navigasi dengan jarak luas
-     - KANAN : tombol Call-to-Action emas
-     EDIT TAUTAN MENU: ubah href atau teks pada tag <a class="nav-link">
-================================================================ -->
 <header id="navbar" class="safe-top fixed inset-x-0 top-0 z-50 transition-all duration-500">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     <div class="flex items-center justify-between py-4">
 
-      <!-- LOGO PERUSAHAAN (EDIT TEKS LOGO DI SINI) -->
+      
       <a href="#beranda" class="group flex items-center gap-3">
         <span class="grid h-11 w-11 shrink-0 place-items-center border border-gold bg-white/70 font-display text-sm font-bold tracking-widest text-gold-grad shadow-[0_6px_20px_-8px_rgba(168,132,47,.5)] transition group-hover:shadow-[0_8px_26px_-8px_rgba(168,132,47,.65)]">NKS</span>
         <span class="leading-tight">
@@ -338,7 +284,7 @@
         </span>
       </a>
 
-      <!-- MENU NAVIGASI DESKTOP (EDIT: tambah/hapus tag <a class="nav-link">) -->
+      
       <nav class="hidden items-center gap-10 text-[12px] uppercase tracking-[.24em] lg:flex">
         <a href="#beranda" class="nav-link text-slate-600 transition hover:text-[#8a6d2a]">Beranda</a>
         <a href="#tentang" class="nav-link text-slate-600 transition hover:text-[#8a6d2a]">Tentang</a>
@@ -347,21 +293,21 @@
         <a href="#portofolio" class="nav-link text-slate-600 transition hover:text-[#8a6d2a]">Portofolio</a>
       </nav>
 
-      <!-- TOMBOL CALL-TO-ACTION EMAS (EDIT TAUTAN & TEKS DI SINI) -->
+      
       <div class="hidden lg:block">
         <a href="#kontak" class="btn-gold inline-flex items-center gap-2 rounded-full px-7 py-3 text-[12px] uppercase tracking-[.18em]">
           Hubungi Kami <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
         </a>
       </div>
 
-      <!-- TOMBOL TOGGLE MENU MOBILE -->
+      
       <button id="menuBtn" aria-label="Buka menu navigasi" class="rounded-sm border border-gold/40 p-2.5 transition hover:bg-[#efe6c9] lg:hidden">
         <i data-lucide="menu" class="h-6 w-6 text-[#8a6d2a]"></i>
       </button>
     </div>
   </div>
 
-  <!-- MENU MOBILE (dropdown) — EDIT: samakan isinya dengan menu desktop -->
+  
   <div id="mobileMenu" class="hidden border-t border-gold/20 bg-paper/95 backdrop-blur-xl lg:hidden">
     <nav class="flex flex-col gap-1.5 px-6 py-5 text-[15px] uppercase tracking-[.2em]">
       <a href="#beranda" class="mobile-link flex min-h-[46px] items-center justify-between py-3.5 text-slate-600 transition hover:text-[#8a6d2a]"><span>Beranda</span><i data-lucide="arrow-up-right" class="h-4 w-4 text-[#a67c1f]/50"></i></a>
@@ -373,42 +319,38 @@
     </nav>
   </div>
 </header>
-<!-- ============================================================
-     SECTION 2: HERO — BAGIAN PEMBUKA LAYAR PENUH
-     ============================================================
-     EDIT TEKS: ganti kalimat di <h1>, <p>, dan label tombol.
-================================================================ -->
+
 <section id="beranda" class="hero-height relative z-10 flex min-h-screen flex-col justify-center overflow-hidden pt-28 pb-16">
 
-  <!-- LATAR: grid emas halus (dekoratif, tidak perlu diubah) -->
+  
   <div class="absolute inset-0 bg-grid opacity-60" style="-webkit-mask-image:radial-gradient(ellipse 80% 62% at 50% 32%, #000, transparent);mask-image:radial-gradient(ellipse 80% 62% at 50% 32%, #000, transparent);" aria-hidden="true"></div>
 
-  <!-- LATAR: cahaya lembut (dekoratif, tidak perlu diubah) -->
+  
   <div class="orb -top-20 left-1/2 h-[560px] w-[560px] -translate-x-1/2" style="background:radial-gradient(circle, rgba(214,164,84,.35), transparent 60%);" aria-hidden="true"></div>
   <div class="orb -left-40 bottom-0 h-[480px] w-[480px]" style="background:radial-gradient(circle, rgba(160,180,230,.20), transparent 62%);" aria-hidden="true"></div>
 
-  <!-- LATAR: lingkaran ornamen tipis (dekoratif) -->
+  
   <div class="absolute -right-44 top-1/4 h-80 w-80 rounded-full border border-gold/25" aria-hidden="true"></div>
   <div class="absolute -right-28 top-[22%] h-80 w-80 rounded-full border border-gold/20" aria-hidden="true"></div>
 
   <div class="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
     <div class="max-w-4xl">
 
-      <!-- KICKER / LABEL ATAS (EDIT TEKS DI SINI) -->
-      <p class="eyebrow reveal flex items-center gap-4"><span class="h-px w-12 bg-gold/60"></span> Berdiri sejak 2019 · Kota Bekasi, Jawa Barat</p>
+      
+      <p class="eyebrow reveal flex items-center gap-4"><span class="h-px w-12 bg-gold/60"></span> Berdiri sejak 2019 Â· Kota Bekasi, Jawa Barat</p>
 
-      <!-- JUDUL UTAMA (EDIT NAMA PERUSAHAAN DI SINI) -->
+      
       <h1 class="reveal reveal-d1 mt-7 font-display leading-[1.02] text-navy">
         <span class="block text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">NUANSA <em class="text-gold-grad font-medium italic">KREASI</em></span>
         <span class="mt-2 block text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">SEMESTA</span>
       </h1>
 
-      <!-- SUBJUDUL / DESKRIPSI SINGKAT (EDIT DI SINI) -->
+      
       <p class="reveal reveal-d2 mt-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
         Jasa event organizer dan perdagangan besar. Kami mengurus acara dari rapat kerja sampai panggung, serta pengadaan barang untuk kantor dan lembaga.
       </p>
 
-      <!-- TOMBOL AKSI GANDA (EDIT TAUTAN & TEKS TOMBOL DI SINI) -->
+      
       <div class="reveal reveal-d3 mt-11 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
         <a href="#layanan" class="btn-gold inline-flex w-full items-center justify-center gap-2 rounded-full px-9 py-4 text-sm tracking-wide sm:w-auto">
           Lihat Layanan <i data-lucide="arrow-down" class="h-4 w-4"></i>
@@ -418,7 +360,7 @@
         </a>
       </div>
 
-      <!-- ANGKA-ANGKA SINGKAT — dihitung naik otomatis saat terlihat (EDIT angka di data-count) -->
+      
       <div class="reveal reveal-d4 mt-16 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-sm border border-gold/30 bg-gold/30 shadow-[0_20px_45px_-25px_rgba(138,109,42,.4)] sm:grid-cols-4">
         <div class="bg-white/75 px-6 py-6">
           <p class="font-display text-3xl text-gold-grad" data-count="2019">0</p>
@@ -440,58 +382,47 @@
     </div>
   </div>
 
-  <!-- INDIKATOR SCROLL (dekoratif) -->
+  
   <div class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex">
     <span class="text-[10px] uppercase tracking-[.4em] text-slate-500">Scroll</span>
     <span class="flex h-9 w-5 justify-center rounded-full border border-gold/50"><span class="scroll-dot mt-1.5 h-1.5 w-1.5 rounded-full bg-[#a67c1f]"></span></span>
   </div>
 </section>
-<!-- ============================================================
-     MARQUEE / JALUR NAMA KLIEN (BERJALAN OTOMATIS KE KIRI)
-     EDIT: tambah/kurangi nama klien. PENTING: isi blok 1 dan blok 2
-     HARUS SAMA persis agar animasinya mulus tanpa putus.
-================================================================ -->
+
 <div class="relative z-10 overflow-hidden border-y border-gold/25 bg-white/60 py-5">
   <div class="marquee-track">
     <div class="flex shrink-0 items-center gap-14 pr-14 text-sm uppercase tracking-[.35em] text-slate-600">
-      <span>DPD-RI</span><span class="text-[#a67c1f]">✦</span>
-      <span>Kementerian Dalam Negeri</span><span class="text-[#a67c1f]">✦</span>
-      <span>TERA</span><span class="text-[#a67c1f]">✦</span>
-      <span>MEKA TUNGGAL</span><span class="text-[#a67c1f]">✦</span>
+      <span>DPD-RI</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>Kementerian Dalam Negeri</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>TERA</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>MEKA TUNGGAL</span><span class="text-[#a67c1f]">âœ¦</span>
     </div>
     <div class="flex shrink-0 items-center gap-14 pr-14 text-sm uppercase tracking-[.35em] text-slate-600" aria-hidden="true">
-      <span>DPD-RI</span><span class="text-[#a67c1f]">✦</span>
-      <span>Kementerian Dalam Negeri</span><span class="text-[#a67c1f]">✦</span>
-      <span>TERA</span><span class="text-[#a67c1f]">✦</span>
-      <span>MEKA TUNGGAL</span><span class="text-[#a67c1f]">✦</span>
+      <span>DPD-RI</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>Kementerian Dalam Negeri</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>TERA</span><span class="text-[#a67c1f]">âœ¦</span>
+      <span>MEKA TUNGGAL</span><span class="text-[#a67c1f]">âœ¦</span>
     </div>
   </div>
 </div>
 
-<!-- ============================================================
-     SECTION 3: TENTANG KAMI & FILOSOFI
-     ============================================================
-     - KIRI : profil perusahaan sejak 2019
-     - KANAN: kotak kutipan filosofi berbingkai emas
-     EDIT: semua teks bisa diganti di dalam tag <p> / <h2> di bawah.
-================================================================ -->
 <section id="tentang" class="relative z-10 py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
 
-      <!-- TEKS PROFIL PERUSAHAAN -->
+      
       <div>
         <p class="eyebrow reveal">Tentang Kami</p>
         <h2 class="reveal reveal-d1 mt-5 font-display text-4xl leading-[1.15] text-navy md:text-5xl">
           Dua bidang usaha, satu perusahaan yang sama-sama kami kerjakan.
         </h2>
         <div class="reveal reveal-d2 mt-8 space-y-5 leading-relaxed text-slate-600">
-          <p><!-- EDIT: paragraf 1 -->PT. Nuansa Kreasi Semesta bergerak di bidang jasa event organizer dan perdagangan besar. Kantor kami berada di Mustikajaya, Kota Bekasi, Jawa Barat. Perusahaan ini berdiri sejak tahun 2019.</p>
-          <p><!-- EDIT: paragraf 2 -->Di bidang event organizer, kami mengerjakan acara dari persiapan sampai selesai: konsep acara, sekretariat, panggung, sampai dokumentasi. Di bidang perdagangan besar, kami menyediakan alat kesehatan, produk farmasi, barang percetakan, komputer, dan konsumsi acara.</p>
-          <p><!-- EDIT: paragraf 3 -->Klien kami berasal dari lembaga negara dan perusahaan swasta. Sebagian besar kerja sama yang masuk datang dari pesanan ulang dan rekomendasi klien yang sudah ada.</p>
+          <p>PT. Nuansa Kreasi Semesta bergerak di bidang jasa event organizer dan perdagangan besar. Kantor kami berada di Mustikajaya, Kota Bekasi, Jawa Barat. Perusahaan ini berdiri sejak tahun 2019.</p>
+          <p>Di bidang event organizer, kami mengerjakan acara dari persiapan sampai selesai: konsep acara, sekretariat, panggung, sampai dokumentasi. Di bidang perdagangan besar, kami menyediakan alat kesehatan, produk farmasi, barang percetakan, komputer, dan konsumsi acara.</p>
+          <p>Klien kami berasal dari lembaga negara dan perusahaan swasta. Sebagian besar kerja sama yang masuk datang dari pesanan ulang dan rekomendasi klien yang sudah ada.</p>
         </div>
 
-        <!-- POIN SINGKAT (EDIT: salin blok <li> untuk menambah poin) -->
+        
         <ul class="reveal reveal-d3 mt-9 grid gap-4 sm:grid-cols-2">
           <li class="flex items-start gap-3"><i data-lucide="badge-check" class="mt-0.5 h-5 w-5 shrink-0 text-gold"></i><span class="text-sm text-slate-600">Berdiri tahun 2019 di Kota Bekasi.</span></li>
           <li class="flex items-start gap-3"><i data-lucide="box" class="mt-0.5 h-5 w-5 shrink-0 text-gold"></i><span class="text-sm text-slate-600">Lima jenis barang dagang yang disediakan.</span></li>
@@ -500,16 +431,16 @@
         </ul>
       </div>
 
-      <!-- KOTAK KUTIPAN FILOSOFI (EDIT KALIMAT FILOSOFI DI SINI) -->
+      
       <div class="gold-frame reveal reveal-d2 relative p-1">
-        <!-- Ornamen sudut emas -->
+        
         <div class="absolute -left-px -top-px h-8 w-8 border-l-2 border-t-2 border-gold"></div>
         <div class="absolute -bottom-px -right-px h-8 w-8 border-b-2 border-r-2 border-gold"></div>
         <div class="px-8 py-10 md:px-12 md:py-14">
           <i data-lucide="quote" class="h-10 w-10 text-gold"></i>
           <p class="eyebrow mt-8">Filosofi Perusahaan</p>
           <p class="mt-5 font-display text-2xl italic leading-relaxed text-navy md:text-[2rem]">
-            “Meningkatkan nilai perusahaan melalui <span class="text-gold-grad font-semibold not-italic">kemanfaatan bagi masyarakat</span>.”
+            â€œMeningkatkan nilai perusahaan melalui <span class="text-gold-grad font-semibold not-italic">kemanfaatan bagi masyarakat</span>.â€
           </p>
           <div class="mt-8 flex items-center gap-4">
             <span class="h-px flex-1 bg-gold/40"></span>
@@ -521,17 +452,11 @@
     </div>
   </div>
 </section>
-<!-- ============================================================
-     SECTION 4: VISI, MISI & NILAI CORPORATE (AKHLAK)
-     ============================================================
-     - Kartu putih untuk visi & misi
-     - Grid 6 kartu nilai AKHLAK
-     EDIT: teks bisa diganti di dalam setiap kartu di bawah.
-================================================================ -->
+
 <section id="visi-misi" class="relative z-10 py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
 
-    <!-- KEPALA SECTION (EDIT JUDUL DI SINI) -->
+    
     <div class="max-w-3xl">
       <p class="eyebrow reveal">Visi, Misi, Nilai</p>
       <h2 class="reveal reveal-d1 mt-5 font-display text-4xl leading-tight text-navy md:text-5xl">Visi perusahaan tercantum resmi. Nilai AKHLAK jadi pedoman kerja.</h2>
@@ -539,20 +464,20 @@
 
     <div class="mt-14 grid gap-8 lg:grid-cols-5">
 
-      <!-- KARTU VISI (lebar 3 dari 5 kolom) — EDIT TEKS VISI DI SINI -->
+      
       <div class="glass-card reveal reveal-d1 relative overflow-hidden rounded-sm p-8 md:p-10 lg:col-span-3">
         <div class="absolute -right-10 -top-10 h-40 w-40 translate-x-10 -translate-y-10 rounded-full" style="background:radial-gradient(circle, rgba(212,175,55,.20), transparent 60%);"></div>
         <i data-lucide="eye" class="h-9 w-9 text-gold"></i>
         <p class="mt-6 text-[11px] uppercase tracking-[.4em] text-[#8a6d2a]">Visi Perusahaan</p>
         <p class="mt-4 font-display text-2xl leading-snug text-navy md:text-[1.8rem]">
-          “Menjadi Perusahaan Dagang Terpercaya dan Terkemuka serta Mempunyai Akses Sumber dan Jaringan Pemasaran <span class="text-gold-grad italic">di Dalam Negeri</span>.”
+          â€œMenjadi Perusahaan Dagang Terpercaya dan Terkemuka serta Mempunyai Akses Sumber dan Jaringan Pemasaran <span class="text-gold-grad italic">di Dalam Negeri</span>.â€
         </p>
         <div class="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[.3em] text-slate-500">
           <span class="h-px w-10 bg-gold/50"></span> Visi
         </div>
       </div>
 
-      <!-- KARTU MISI (2 dari 5 kolom) — EDIT: salin blok <li> utk menambah -->
+      
       <div class="glass-card reveal reveal-d2 relative overflow-hidden rounded-sm p-8 md:p-10 lg:col-span-2">
         <i data-lucide="list-checks" class="h-9 w-9 text-gold"></i>
         <p class="mt-6 text-[11px] uppercase tracking-[.4em] text-[#8a6d2a]">Misi Perusahaan</p>
@@ -588,9 +513,7 @@
         </ol>
       </div>
     </div>
-<!-- GRID NILAI AKHLAK (6 PILAR) — EDIT: untuk menambah pilar,
-         SALIN satu blok "akhlak-card" lalu tempel di bawahnya.
-         Ikon: ganti nama pada data-lucide (lihat https://lucide.dev/icons) -->
+
     <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
       <div class="akhlak-card glass-card reveal group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_26px_55px_-30px_rgba(138,109,42,.45)]">
@@ -655,14 +578,7 @@
     </div>
   </div>
 </section>
-<!-- ============================================================
-     SECTION 5: LAYANAN (BENTO GRID ASIMETRIS)
-     ============================================================
-     - KARTU BESAR: Event Organizer / MICE / Panggung
-     - KARTU KECIL: Perdagangan Besar + 6 kartu jenis barang
-     EDIT: setiap kartu adalah blok <a class="bento-item"> — SALIN bloknya
-     untuk menambah layanan baru, layout menyesuaikan otomatis.
-================================================================ -->
+
 <section id="layanan" class="relative z-10 py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -673,15 +589,12 @@
       <p class="reveal reveal-d2 max-w-sm text-sm leading-relaxed text-slate-600">Kebutuhan acara dan pengadaan barang diurus oleh tim yang sama, dari awal sampai serah terima.</p>
     </div>
 
-    <!-- BENTO GRID: 6 kolom di desktop. EDIT: salin kartu di bawah
-         untuk menambah layanan baru; grid tersusun rapi otomatis. -->
+    
     <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-6">
 
-      <!-- ============ KARTU BESAR: EVENT ORGANIZER & MICE ============
-           EDIT TEKS di <h3> dan <ul> di bawah ini.
-           Mengisi area 4 kolom x 2 baris pada bento grid. -->
+      
       <a href="#kontak" class="gold-frame group relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-sm p-8 transition-all duration-500 hover:shadow-[0_34px_70px_-35px_rgba(138,109,42,.5)] md:col-span-2 md:p-10 lg:col-span-4 lg:row-span-2">
-        <!-- cahaya dekoratif kartu -->
+        
         <div class="absolute inset-0 opacity-70 transition duration-700 group-hover:opacity-100" style="background:radial-gradient(ellipse 70% 55% at 85% 15%, rgba(212,175,55,.16), transparent 60%);"></div>
         <div class="relative">
           <div class="flex items-center justify-between">
@@ -691,7 +604,7 @@
           <h3 class="mt-8 font-display text-3xl leading-tight text-navy md:text-5xl">Event Organizer<br /><em class="text-gold-grad italic">MICE &amp; Panggung</em></h3>
           <p class="mt-5 max-w-md text-sm leading-relaxed text-slate-600 md:text-base">Acara dikerjakan dari persiapan sampai selesai: rapat kerja, seminar, pameran, sampai pertunjukan panggung.</p>
         </div>
-        <!-- SUB-LAYANAN EVENT (EDIT: salin blok <li> untuk menambah) -->
+        
         <ul class="relative mt-10 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
           <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-gold"></i>Konsep &amp; sekretariat acara</li>
           <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-gold"></i>Panggung, lampu, dan backdrop</li>
@@ -701,14 +614,13 @@
         <span class="relative mt-8 inline-flex items-center gap-2 text-[12px] uppercase tracking-[.25em] text-[#8a6d2a]">Tanya Rincian <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
       </a>
 
-      <!-- ============ KARTU: PERDAGANGAN BESAR ============
-           EDIT TEKS di <h3> dan chip di bawah ini. -->
+      
       <a href="#kontak" class="glass-card group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 md:col-span-2 md:p-8 lg:col-span-2">
         <div>
           <span class="rounded-full border border-gold/40 bg-white/60 px-4 py-1 text-[11px] uppercase tracking-[.3em] text-[#8a6d2a]">Bidang 02</span>
           <h3 class="mt-6 font-display text-2xl text-navy">Perdagangan Besar</h3>
           <p class="mt-3 text-sm leading-relaxed text-slate-600">Barang diambil dari produsen, diperiksa, lalu disalurkan ke pembeli di dalam negeri.</p>
-          <!-- CHIP NAMA BARANG (EDIT di sini) -->
+          
           <div class="mt-5 flex flex-wrap gap-2">
             <span class="rounded-full border border-gold/35 bg-white/70 px-3 py-1 text-[10px] uppercase tracking-wider text-[#7a6424]">Alkes</span>
             <span class="rounded-full border border-gold/35 bg-white/70 px-3 py-1 text-[10px] uppercase tracking-wider text-[#7a6424]">Farmasi</span>
@@ -719,8 +631,7 @@
         </div>
         <i data-lucide="warehouse" class="h-8 w-8 text-gold/70 transition duration-500 group-hover:text-gold"></i>
       </a>
-<!-- ============ KARTU: ALAT KESEHATAN ============
-           EDIT: salin blok <a class="bento-item"> untuk menambah -->
+
       <a href="#kontak" class="bento-item glass-card group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 lg:col-span-2">
         <div class="flex items-center justify-between">
           <i data-lucide="stethoscope" class="h-8 w-8 text-gold"></i>
@@ -731,7 +642,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </a>
 
-      <!-- ============ KARTU: FARMASI ============ -->
+      
       <a href="#kontak" class="bento-item glass-card group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 lg:col-span-2">
         <div class="flex items-center justify-between">
           <i data-lucide="pill" class="h-8 w-8 text-gold"></i>
@@ -742,7 +653,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </a>
 
-      <!-- ============ KARTU: PERCETAKAN ============ -->
+      
       <a href="#kontak" class="bento-item glass-card group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 lg:col-span-2">
         <div class="flex items-center justify-between">
           <i data-lucide="printer" class="h-8 w-8 text-gold"></i>
@@ -753,7 +664,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </a>
 
-      <!-- ============ KARTU: KOMPUTER & ELEKTRONIK ============ -->
+      
       <a href="#kontak" class="bento-item glass-card group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 lg:col-span-2">
         <div class="flex items-center justify-between">
           <i data-lucide="cpu" class="h-8 w-8 text-gold"></i>
@@ -764,7 +675,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </a>
 
-      <!-- ============ KARTU: AUDIO, VISUAL & MULTIMEDIA ============ -->
+      
       <a href="#kontak" class="bento-item glass-card group relative overflow-hidden rounded-sm p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 lg:col-span-2">
         <div class="flex items-center justify-between">
           <i data-lucide="monitor-speaker" class="h-8 w-8 text-gold"></i>
@@ -775,8 +686,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </a>
 
-      <!-- ============ KARTU LEBAR: CATERING ============
-           Kartu lebar (4 kolom) di baris bawah bento. -->
+      
       <div class="glass-card reveal group relative flex flex-col justify-between gap-6 overflow-hidden rounded-sm p-8 transition-all duration-500 hover:border-gold/45 sm:flex-row sm:items-center md:col-span-2 lg:col-span-4">
         <div class="flex items-start gap-5">
           <span class="grid h-14 w-14 shrink-0 place-items-center border border-gold/40 bg-white/60"><i data-lucide="utensils-crossed" class="h-7 w-7 text-gold"></i></span>
@@ -790,27 +700,21 @@
     </div>
   </div>
 </section>
-<!-- ============================================================
-     SECTION 6: PORTOFOLIO & KLIEN
-     ============================================================
-     - Daftar institusi yang pernah bekerja sama
-     EDIT: untuk menambah klien, SALIN satu blok "client-card" lalu
-     tempel di bawahnya (grid menyesuaikan 1/2/4 kolom).
-================================================================ -->
+
 <section id="portofolio" class="relative z-10 py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
 
-    <!-- KEPALA SECTION (EDIT JUDUL & DESKRIPSI DI SINI) -->
+    
     <div class="max-w-2xl">
       <p class="eyebrow reveal">Portofolio</p>
       <h2 class="reveal reveal-d1 mt-5 font-display text-4xl leading-tight text-navy md:text-5xl">Klien yang pernah bekerja sama.</h2>
       <p class="reveal reveal-d2 mt-6 leading-relaxed text-slate-600">Sejak 2019, pekerjaan kami berasal dari lembaga pemerintah dan perusahaan swasta.</p>
     </div>
 
-    <!-- GRID KARTU KLIEN (EDIT: salin blok <div class="client-card">) -->
+    
     <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-      <!-- KARTU KLIEN: DPD-RI -->
+      
       <div class="client-card group relative overflow-hidden rounded-sm glass-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_28px_60px_-30px_rgba(138,109,42,.45)]">
         <div class="flex items-center justify-between">
           <span class="grid h-12 w-12 place-items-center border border-gold/40 bg-white/60 font-display text-lg font-bold text-gold-grad">DP</span>
@@ -821,7 +725,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </div>
 
-      <!-- KARTU KLIEN: KEMENTERIAN DALAM NEGERI -->
+      
       <div class="client-card group relative overflow-hidden rounded-sm glass-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_28px_60px_-30px_rgba(138,109,42,.45)]">
         <div class="flex items-center justify-between">
           <span class="grid h-12 w-12 place-items-center border border-gold/40 bg-white/60 font-display text-lg font-bold text-gold-grad">KD</span>
@@ -832,7 +736,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </div>
 
-      <!-- KARTU KLIEN: TERA -->
+      
       <div class="client-card group relative overflow-hidden rounded-sm glass-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_28px_60px_-30px_rgba(138,109,42,.45)]">
         <div class="flex items-center justify-between">
           <span class="grid h-12 w-12 place-items-center border border-gold/40 bg-white/60 font-display text-lg font-bold text-gold-grad">TR</span>
@@ -843,7 +747,7 @@
         <span class="mt-5 block h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-full"></span>
       </div>
 
-      <!-- KARTU KLIEN: MEKA TUNGGAL -->
+      
       <div class="client-card group relative overflow-hidden rounded-sm glass-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_28px_60px_-30px_rgba(138,109,42,.45)]">
         <div class="flex items-center justify-between">
           <span class="grid h-12 w-12 place-items-center border border-gold/40 bg-white/60 font-display text-lg font-bold text-gold-grad">MT</span>
@@ -855,7 +759,7 @@
       </div>
     </div>
 
-    <!-- CATATAN SINGKAT (EDIT TEKS DI SINI) -->
+    
     <div class="gold-frame reveal mt-10 p-1">
       <div class="flex flex-col gap-6 px-8 py-7 md:flex-row md:items-center">
         <i data-lucide="quote" class="h-8 w-8 shrink-0 text-gold"></i>
@@ -865,27 +769,20 @@
     </div>
   </div>
 </section>
-<!-- ============================================================
-     SECTION 7: KONTAK
-     ============================================================
-     - KIRI : ajakan + informasi kontak dan alamat
-     - KANAN: kartu Call-to-Action WhatsApp langsung
-     EDIT NOMOR WHATSAPP: ubah angka pada href="https://wa.me/...".
-     Format internasional tanpa "+" dan tanpa spasi: 6281317777366
-================================================================ -->
+
 <section id="kontak" class="relative z-10 py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     <div class="grid gap-8 lg:grid-cols-2">
 
-      <!-- KIRI: AJAKAN + INFORMASI KONTAK -->
+      
       <div>
         <p class="eyebrow reveal">Kontak</p>
         <h2 class="reveal reveal-d1 mt-5 font-display text-4xl leading-tight text-navy md:text-5xl">Punya kebutuhan acara atau pengadaan barang?</h2>
         <p class="reveal reveal-d2 mt-6 max-w-lg leading-relaxed text-slate-600">Sampaikan lewat WhatsApp. Kami balas dengan keterangan harga dan jadwal kerja.</p>
 
-        <!-- DAFTAR INFORMASI KONTAK (EDIT TAUTAN & TEKS DI BLOK INI) -->
+        
         <div class="reveal reveal-d3 mt-10 space-y-5">
-          <!-- BLOK: WHATSAPP -->
+          
           <a href="https://wa.me/6281317777366" target="_blank" rel="noopener" class="group flex items-start gap-4 rounded-sm border border-gold/30 bg-white/70 p-5 transition hover:border-gold/60 hover:shadow-[0_18px_45px_-25px_rgba(138,109,42,.4)]">
             <span class="grid h-11 w-11 shrink-0 place-items-center border border-gold/40 bg-white"><i data-lucide="phone" class="h-5 w-5 text-gold"></i></span>
             <span>
@@ -894,7 +791,7 @@
             </span>
           </a>
 
-          <!-- BLOK: ALAMAT -->
+          
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Jl.+Dukuh+Zamrud+Blok+L5+No.+6+Padurenan+Mustikajaya+Bekasi" target="_blank" rel="noopener" class="group flex items-start gap-4 rounded-sm border border-gold/30 bg-white/70 p-5 transition hover:border-gold/60 hover:shadow-[0_18px_45px_-25px_rgba(138,109,42,.4)]">
             <span class="grid h-11 w-11 shrink-0 place-items-center border border-gold/40 bg-white"><i data-lucide="map-pin" class="h-5 w-5 text-gold"></i></span>
             <span>
@@ -903,18 +800,18 @@
             </span>
           </a>
 
-          <!-- BLOK: JAM LAYANAN -->
+          
           <div class="flex items-start gap-4 rounded-sm border border-gold/30 bg-white/70 p-5">
             <span class="grid h-11 w-11 shrink-0 place-items-center border border-gold/40 bg-white"><i data-lucide="clock" class="h-5 w-5 text-gold"></i></span>
             <span>
               <span class="block text-[11px] uppercase tracking-[.3em] text-slate-500">Jam Layanan</span>
-              <span class="mt-1 block font-medium text-navy">Senin – Jumat · 08.00 – 17.00 WIB</span>
+              <span class="mt-1 block font-medium text-navy">Senin â€“ Jumat Â· 08.00 â€“ 17.00 WIB</span>
             </span>
           </div>
         </div>
       </div>
 
-      <!-- KANAN: KARTU CTA WHATSAPP LANGSUNG -->
+      
       <div class="gold-frame reveal reveal-d2 relative overflow-hidden p-1 lg:mt-16">
         <div class="absolute -right-10 -top-10 h-48 w-48 rounded-full" style="background:radial-gradient(circle, rgba(212,175,55,.28), transparent 60%);"></div>
         <div class="relative flex h-full flex-col justify-between px-8 py-12 md:px-12 md:py-14">
@@ -933,21 +830,18 @@
       </div>
     </div>
 
-    <!-- PETA LOKASI KANTOR (EDIT: ubah query= jika alamat berubah) -->
+    
     <div class="reveal reveal-d2 mt-14 overflow-hidden rounded-sm border border-gold/30 shadow-[0_24px_60px_-32px_rgba(138,109,42,.5)]">
       <iframe title="Lokasi kantor PT. Nuansa Kreasi Semesta" src="https://www.google.com/maps?q=Jl.+Dukuh+Zamrud+Blok+L5+No.+6+Padurenan+Mustikajaya+Bekasi&output=embed" class="h-72 w-full border-0 sm:h-80 md:h-96" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
 </section>
-<!-- ============================================================
-     FOOTER
-     EDIT: teks hak cipta & tautan navigasi bisa diganti di sini.
-================================================================ -->
+
 <footer class="relative z-10 border-t border-gold/30 bg-ink">
   <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8">
     <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
 
-      <!-- LOGO FOOTER -->
+      
       <div class="flex items-center gap-3">
         <span class="grid h-10 w-10 place-items-center border border-gold/60 font-display text-xs font-bold text-gold-grad">NKS</span>
         <span class="leading-tight">
@@ -956,7 +850,7 @@
         </span>
       </div>
 
-      <!-- NAVIGASI FOOTER (EDIT TAUTAN DI SINI) -->
+      
       <nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs uppercase tracking-[.22em] text-slate-400">
         <a href="#tentang" class="transition hover:text-gold">Tentang</a>
         <a href="#visi-misi" class="transition hover:text-gold">Visi &amp; Misi</a>
@@ -965,45 +859,35 @@
         <a href="#kontak" class="transition hover:text-gold">Kontak</a>
       </nav>
 
-      <!-- TOMBOL WHATSAPP FOOTER -->
+      
       <a href="https://wa.me/6281317777366" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-xs uppercase tracking-[.2em] text-gold transition hover:bg-gold/10"><i data-lucide="message-circle" class="h-4 w-4"></i> WhatsApp</a>
     </div>
 
-    <!-- BARIS HAK CIPTA (EDIT DI SINI) -->
+    
     <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-gold/15 pt-7 md:flex-row">
-      <p class="text-xs text-slate-500">© 2026 PT. Nuansa Kreasi Semesta. Hak cipta dilindungi undang-undang.</p>
+      <p class="text-xs text-slate-500">Â© 2026 PT. Nuansa Kreasi Semesta. Hak cipta dilindungi undang-undang.</p>
       <p class="text-xs tracking-wide text-slate-500">Berkantor di Kota Bekasi, Jawa Barat.</p>
     </div>
   </div>
 </footer>
 
-<!-- ============================================================
-     TOMBOL WHATSAPP MENGAMBANG (diperlihatkan di HP/iPad)
-     EDIT NOMOR: ubah angka pada href="https://wa.me/...".
-================================================================ -->
 <a id="waFab" href="https://wa.me/6281317777366" target="_blank" rel="noopener" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 z-40 grid h-14 w-14 place-items-center rounded-full text-white shadow-[0_16px_40px_-16px_rgba(37,211,102,.7)] transition hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#2fd671,#1e9e56);">
   <i data-lucide="message-circle" class="h-7 w-7"></i>
 </a>
 
-<!-- ============================================================
-     TOMBOL "KEMBALI KE ATAS" (muncul otomatis saat halaman discroll)
-================================================================ -->
 <button id="backTop" aria-label="Kembali ke atas" class="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-white text-[#8a6d2a] shadow-[0_12px_30px_-12px_rgba(138,109,42,.5)] transition hover:bg-gold hover:text-white">
   <i data-lucide="chevron-up" class="h-5 w-5"></i>
 </button>
-<!-- ============================================================
-     JAVASCRIPT — INTERAKSI HALAMAN
-     (Tidak perlu diubah untuk fungsi dasar; silakan dikembangkan)
-================================================================ -->
+
 <script>
-  // 1) Render semua ikon Lucide yang ada di halaman
+  
   lucide.createIcons();
 
-  // 1b) SPLASH SCREEN — layar pembuka, otomatis tertutup atau klik "Masuk"
+  
   const splash = document.getElementById('splash');
   const splashEnter = document.getElementById('splashEnter');
   let splashDone = false;
-  document.body.style.overflow = 'hidden'; // kunci scroll selama splash tampil
+  document.body.style.overflow = 'hidden'; 
   const dismissSplash = () => {
     if (splashDone) return;
     splashDone = true;
@@ -1011,13 +895,13 @@
     document.body.style.overflow = '';
     setTimeout(() => { splash.remove(); initReveal(); }, 800);
   };
-  // klik tombol "Masuk" -> langsung tutup
+  
   splashEnter.addEventListener('click', dismissSplash);
-  // penutupan otomatis setelah kurang lebih 3 detik
+  
   window.addEventListener('load', () => setTimeout(dismissSplash, 2800));
-  setTimeout(dismissSplash, 6000); // pengaman: jalankan jika 'load' lambat
+  setTimeout(dismissSplash, 6000); 
 
-  // 2) Toggle menu mobile
+  
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -1025,9 +909,9 @@
     link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
   );
 
-  // 2b) Scroll halus & presisi untuk SEMUA tautan internal (a[href^="#"])
-  //   Memakai offset dinamis agar selalu mendarat tepat, tidak lompat acak.
-  //   Juga menangani iOS/Android yang mendaratkan anchor di bawah navbar.
+  
+  
+  
   const navbarEl = document.getElementById('navbar');
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const navOffset = () => (navbarEl ? navbarEl.offsetHeight + 10 : 100);
@@ -1043,7 +927,7 @@
     });
   });
 
-  // 3) Navbar transparan -> putih saat user scroll + tombol back-to-top
+  
   const navbar = document.getElementById('navbar');
   const backTop = document.getElementById('backTop');
   const onScroll = () => {
@@ -1062,8 +946,8 @@
   onScroll();
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // 4) Animasi reveal saat elemen masuk viewport
-  //    (dijalankan setelah splash tertutup agar hero tampil beranimasi)
+  
+  
   let revealReady = false;
   function initReveal() {
     if (revealReady) return;
@@ -1078,9 +962,9 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
-  setTimeout(initReveal, 6000); // pengaman: reveal tetap jalan meski ada kendala
+  setTimeout(initReveal, 6000); 
 
-  // 5) PROGRESS BAR EMAS — lebar mengikuti posisi scroll
+  
   const progressBar = document.getElementById('scrollProgress');
   const updateProgress = () => {
     const doc = document.documentElement;
@@ -1091,7 +975,7 @@
   window.addEventListener('resize', updateProgress);
   updateProgress();
 
-  // 6) SCROLLSPY — menu navigasi aktif mengikuti posisi halaman
+  
   const sectionIds = ['beranda', 'tentang', 'visi-misi', 'layanan', 'portofolio', 'kontak'];
   const spy = () => {
     let current = 'beranda';
@@ -1109,7 +993,7 @@
   window.addEventListener('scroll', spy, { passive: true });
   spy();
 
-  // 7) ANGKA STATISTIK BERJALAN (count-up) saat hero terlihat
+  
   const animateCount = (el) => {
     const target = parseInt(el.dataset.count || '0', 10);
     const pad = parseInt(el.dataset.pad || '0', 10);
@@ -1132,7 +1016,7 @@
   }, { threshold: 0.4 });
   document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 
-  // 8) EFEK TILT 3D — kartu layanan & klien mengikuti kursor (desktop saja)
+  
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !isReducedMotion) {
     document.querySelectorAll('#layanan .bento-item, #layanan .gold-frame, #portofolio .client-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
